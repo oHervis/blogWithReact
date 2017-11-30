@@ -1,9 +1,9 @@
 import React from 'react'
 
 export default props =>{
-    
-    if (props.content.fields && props.image) {
-       
+    console.log(props)
+    if (props.content.fields) {       
+        console.log(1)
         return (
             <article >
                 <section>
@@ -26,7 +26,9 @@ export default props =>{
         )    
     }else{
         return(
-            <div></div>
+            <div>
+                <h1>{props.error}</h1>
+            </div>
         )
     }
     

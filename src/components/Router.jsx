@@ -1,5 +1,6 @@
 import React from 'react'
 import Home from './Home'
+import About from './content/About'
 import Contato from './content/Contato'
 import Post from './content/PostList'
 import Reader from './content/Reader'
@@ -12,10 +13,11 @@ export default props =>{
     
     return(<Switch>
         <Route exact path='/' component={Home} />
+        <Route exact path='/about' component={About} />
         <Route exact path='/contato' component={Contato} />       
-        <Route exact path='/post' component={Post} />     
+        <Route exact path='/posts' component={Post} />     
         <Route path='/reader' render={(props) => (
-            <Reader id={props.location.hash}/>
+            <Reader teste={props} id={props.location.hash}/>
         )} />  
         <Route component={Page404} />
         

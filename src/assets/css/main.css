@@ -1635,6 +1635,27 @@ input[type="button"],
     cursor: default; }
 
 /* Work Item */
+#posts .row .work-item {
+  margin: 0 0 2em 0;
+  cursor: pointer; }
+  #posts .row .work-item .image {
+    margin: 0 0 1.5em 0; }
+  #posts .row .work-item h3 {
+    font-size: 2em;
+    margin: 0 0 0.5em 0; }
+    #posts .row .work-item h3:hover {
+      color: #3fba99; }
+  #posts .row .work-item p {
+    color: #333;
+    font-size: 1.2em;
+    line-height: 1.5em;
+    margin: 0; }
+  #posts .row .work-item small {
+    color: #333;
+    font-size: 1em;
+    line-height: 1.5em;
+    margin: 0; }
+
 .work-item {
   margin: 0 0 2em 0;
   cursor: pointer; }

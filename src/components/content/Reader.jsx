@@ -9,6 +9,7 @@ export default class Reader extends Component{
             id: this.props.id.substring(1), 
             content: '', 
             image:'', 
+            error:''
         }
         this.getContentPost()
        
@@ -19,20 +20,28 @@ export default class Reader extends Component{
 
         try {
             if (this.state.id) {
+                
                 contentPost = getPostWithId(this.state.id)
+                
                 contentPost.then(item => {
+                    
                     this.setState({ ...this.state, content: item.data })
                     
                 })  
 
 
             } else{
-                contentPost = getPostWithSlug('terceiro-post')
+                let slug = window.location.pathname.substring(8)
+                contentPost = getPostWithSlug(slug)
                 contentPost.then(item => {
-                    this.setState({ ...this.state, content: item.item.data.items[0]})
-                    let idImage = this.state.content.fields.featuredImage.sys.id
-                    this.getImage(idImage)
-                    console.log(item.data.items[0])
+                    if (item.data.items.length > 0) {
+                        this.setState({ ...this.state, content: item.data.items[0]})
+                        let idImage = this.state.content.fields.featuredImage.sys.id
+                        this.getImage(idImage)                        
+                    } else{
+                        this.setState({ ...this.state, error:'Não encontramos essa página :( '})
+                    }
+                    
                 }) 
             }
         } catch(err) {
@@ -51,12 +60,7 @@ export default class Reader extends Component{
             })
         })
     }
-
-    showMenu(){
-
-    }
-
-
+    
     render(){
         
         return(
@@ -64,7 +68,7 @@ export default class Reader extends Component{
                 <Header/>
                 <div className="close"><i className="fa fa-times"></i></div>
                 <div id='main'>
-                <Article image={this.state.image} content={this.state.content}/>           
+                <Article image={this.state.image} content={this.state.content} error={this.state.error}/>           
 
                 </div>
             </div>

@@ -886,6 +886,37 @@
 	}
 
 /* Work Item */
+	#posts{
+		.row{
+			
+			.work-item {
+				margin: 0 0 _size(element-margin) 0;
+				cursor: pointer;
+				.image {
+					margin: 0 0 (_size(element-margin) * 0.75) 0;
+				}
+				h3 {
+					font-size: 2em;
+					margin: 0 0 (_size(element-margin) * 0.25) 0;
+					&:hover{
+						color:#3fba99
+					}
+				}
+				p {
+					color: #333;
+					font-size: 1.2em;
+					line-height: 1.5em;
+					margin: 0;
+				}
+				small{
+					color: #333;
+					font-size: 1em;
+					line-height: 1.5em;
+					margin: 0;
+				}
+			}
+		}
+	}
 
 	.work-item {
 		margin: 0 0 _size(element-margin) 0;
